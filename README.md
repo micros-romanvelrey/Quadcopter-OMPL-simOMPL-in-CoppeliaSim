@@ -9,7 +9,7 @@ Implement a complete workflow in **CoppeliaSim** where a **Quadcopter** (built-i
 
 ## Method overview
 > *(Insert methodology diagram image here)*  
-Example: `docs/images/diagram.png`
+![diagrama](imagenes/esquema.png)
 
 ---
 
