@@ -5,10 +5,10 @@ Implement a complete workflow in **CoppeliaSim** where a **Quadcopter** (built-i
 
 **Technical note:** the trajectory is computed using a *collision proxy* (a simple `shape`) that represents the drone volume. The Quadcopter model is **not modified** to keep the setup simple. Motion is executed by moving the drone `target`, while the Quadcopter internal controller handles the dynamics.
 
----
 
+---
+![diagrama](imagenes/ompl.png)
 ## Method overview
-> *(Insert methodology diagram image here)*  
 ![diagrama](imagenes/esquema.png)
 
 ---
