@@ -14,7 +14,7 @@ Implement a complete workflow in **CoppeliaSim** where a **Quadcopter** (built-i
 ---
 
 ## 1) Software
-- **CoppeliaSim (Educational)**, version: **[fill in here]**
+- **CoppeliaSim (Educational)**, version: v4.10.0
 - Planning is performed using the **simOMPL** plugin available in CoppeliaSim.
 
 ---
@@ -37,7 +37,7 @@ Implement a complete workflow in **CoppeliaSim** where a **Quadcopter** (built-i
 ---
 
 ## 3) `Path` module (OMPL planning)
-Create a container `dummy` (recommended name: `Path`) and place it at the **scene root** (i.e., **not** under the Quadcopter). Then add the following children:
+Create a container [dummy](https://manual.coppeliarobotics.com/en/dummies.htm) (recommended name: `Path`) and place it at the **scene root** (i.e., **not** under the Quadcopter). Then add the following children:
 
 ### 3.1 `start` (dummy)
 - Defines the **start position** of the trajectory.
@@ -47,8 +47,8 @@ Create a container `dummy` (recommended name: `Path`) and place it at the **scen
 - Defines the **goal position** (destination).
 - Must also be placed at a valid height and not intersect obstacles.
 
-### 3.3 `omplRobot` (primitive shape)
-- The **collision proxy**, typically a **sphere** sized approximately like the drone.
+### 3.3 `omplRobot` (primitive shape) 
+- The **collision proxy**, typically a [sphere](https://manual.coppeliarobotics.com/en/shapes.htm) sized approximately like the drone.
 - OMPL uses this proxy to check collisions during planning (instead of the real drone geometry).
 
 **Recommended `omplRobot` configuration:**
@@ -64,7 +64,7 @@ This enables collision detection without physics interaction (no falling due to 
 This script:
 1. Creates an OMPL task (`simOMPL.createTask`)
 2. Defines a state space (e.g., `pose3d`) and its bounds
-3. Selects a planning algorithm (e.g., `RRTConnect`)
+3. Selects a [planning algorithm](https://manual.coppeliarobotics.com/en/simOMPL.htm#enum:Algorithm)(e.g., `RRTConnect`)
 4. Sets collision pairs using `omplRobot`
 5. Computes the trajectory and draws it in **cyan**
 6. Stores the computed path so the follower can execute it
@@ -109,5 +109,3 @@ This repository includes:
 In `Path_Planner.lua`, the planning algorithm can be changed (depending on what your CoppeliaSim/simOMPL version supports). For example:
 - `RRTConnect` for fast feasible solutions
 - `RRT*` / `PRM*` (if available) for more “optimal” solutions (may take longer)
-
-Refer to the CoppeliaSim / simOMPL documentation for the list of available planners in your version.
